@@ -20,7 +20,6 @@ require("nvim-tree").setup({
       },
     },
     icons = {
-      webdev_colors = false,
       show = {
         file = false,
         folder = true,
