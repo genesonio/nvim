@@ -41,7 +41,6 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
-
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
@@ -88,7 +87,16 @@ mason_lspconfig.setup {
 }
 
 mason_lspconfig.setup_handlers {
-  function(server_name)
+  function(server_name)    if server_name == "tsserver" then
+      vim.keymap.set("n", "<leader>o", function()
+        vim.lsp.buf.execute_command({
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = ""
+        })
+        vim.cmd.EslintFixAll()
+      end)
+    end
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
@@ -112,7 +120,7 @@ cmp.setup {
     end,
   },
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -146,5 +154,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "codeium" },
   },
 }

@@ -8,7 +8,7 @@ require("vscode").setup({
   disable_nvimtree_bg = true,
 
   color_overrides = {
-    vscLineNumber = '#666666'
+    vscLineNumber = '#777777'
   },
 
   group_overrides = {
@@ -16,4 +16,12 @@ require("vscode").setup({
   }
 })
 
+function RemoveBackground()
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "VertSplit", { bg = "none" })
+end
+
+RemoveBackground()
 require('vscode').load()

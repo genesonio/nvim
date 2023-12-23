@@ -5,10 +5,28 @@ return {
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'onedark',
+        theme = 'vscode',
         component_separators = '|',
         section_separators = '',
+        offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } },
+        extensions = {"trouble", "fugitive", "lazy"},
+      },
+      sections = {
+        lualine_a = {
+          {
+            'filename',
+            path = 1,
+            symbols = {
+              modified = '| ~~> ● <~~ |'
+            },
+          },
+        },
+        lualine_c = {
+          'none'
+        },
+        lualine_x = {
+          'codeium'
+        }
       },
     },
   },
