@@ -5,7 +5,6 @@ return {
     -- See `:help lualine.txt`
     opts = {
       options = {
-        theme = 'vscode',
         component_separators = '|',
         section_separators = '',
         offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } },
