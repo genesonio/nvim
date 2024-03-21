@@ -2,7 +2,7 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 vim.o.nu = true
 vim.opt.relativenumber = true
-
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#dedada" })
 
 vim.opt.smartindent = true
 vim.o.ignorecase = true
@@ -27,7 +27,7 @@ vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
 
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 vim.o.breakindent = true
 vim.o.tabstop = 2
 vim.o.softtabstop = 2

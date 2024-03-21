@@ -6,6 +6,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set('n', '<leader>qn', ':cnext<CR>')
+vim.keymap.set('n', '<leader>qp', ':cprev<CR>')
+vim.keymap.set('n', '<leader>qq', function() vim.cmd.cexpr("[]") vim.cmd.cclose()  end)
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
