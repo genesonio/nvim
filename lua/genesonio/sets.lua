@@ -1,6 +1,7 @@
 vim.o.nu = true
 vim.opt.relativenumber = true
 
+vim.g.have_nerd_font = true
 
 vim.opt.smartindent = true
 vim.o.ignorecase = true
@@ -10,8 +11,6 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.colorcolumn = "90"
-
-vim.opt.inccommand = "split"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -28,6 +27,8 @@ vim.opt.isfname:append("@-@")
 
 
 vim.opt.updatetime = 50
+
+vim.o.signcolumn = "yes"
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true

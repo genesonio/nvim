@@ -9,7 +9,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- DB usefull commands
-vim.keymap.set("n", "<leader>dd", ":bd!<CR>")
+-- vim.keymap.set("n", "<leader>dd", ":bd!<CR>")
 
 -- Navigate quickfix
 vim.keymap.set('n', '<leader>qn', ':cnext<CR>')
@@ -30,23 +30,16 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 
--- Terminal
-
--- -- Easily hit escape in terminal mode.
--- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
---
--- -- Open a terminal at the bottom of the screen with a fixed height.
--- vim.keymap.set("n", "<leader>t", function()
---   vim.cmd.new()
---   vim.cmd.wincmd "J"
---   vim.api.nvim_win_set_height(0, 12)
---   vim.wo.winfixheight = true
---   vim.cmd.term()
--- end)
-
-
 -- Godtier sort json
 vim.keymap.set("v", "<leader>sj", ":'<,'>!python3 -m json.tool --sort-keys --no-ensure-ascii<CR>gv=")
 
 -- Paste without yank
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

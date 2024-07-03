@@ -25,7 +25,3 @@ return {
   },
   "kristijanhusak/vim-dadbod-ui",
 }
-
-
-
--- end

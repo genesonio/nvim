@@ -97,7 +97,6 @@ mason_lspconfig.setup_handlers {
       vim.keymap.set("n", "<leader>ef", function()
         vim.cmd.EslintFixAll()
       end)
-      vim.keymap.set("n", "<leader>st", require("custom/findReactLongText"))
     end
     if server_name == "solidity" then
       local lspconfig = require('lspconfig')
